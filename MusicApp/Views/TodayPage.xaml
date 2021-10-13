@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="false"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModels="clr-namespace:MusicApp.ViewModels"
+             x:Class="MusicApp.Views.TodayPage"
+             Title="Today"
+             IconImageSource="outline_calendar_today_black_48.png">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <ScrollView BackgroundColor="Transparent">
+                <Frame Padding="0" BackgroundColor="GhostWhite">
+
+                    <StackLayout>
+
+                        <!--Header-->
+                        <StackLayout BackgroundColor="Transparent" Grid.Row="0" Spacing="0">
+
+                            <StackLayout Margin="15" Spacing="0">
+
+                                <Grid ColumnDefinitions="Auto,6*,Auto" Padding="5">
+                                    <Label 
+                                        Grid.Column="1" 
+                                        Text="Quick Help" 
+                                        TextColor="#232423" 
+                                        FontAttributes="Bold" 
+                                        FontSize="Large" 
+                                        HorizontalOptions="Start"/>
+                                    <Image 
+                                        Grid.Column="2" 
+                                        Source="outline_search_black_24.png"
+                                        WidthRequest="30"/>
+                                </Grid>
+                            </StackLayout>
+
+                            <CollectionView SelectionMode="Single" ItemsSource="{Binding QuickHelpMenuList}" HeightRequest="140">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="5" ColumnDefinitions="*">
+                                            <StackLayout Grid.Column="0">
+                                                <Frame CornerRadius="15" Padding="18" Margin="8" HeightRequest="40" WidthRequest="40" HasShadow="False" BackgroundColor="White">
+                                                    <Frame.Content>
+                                                        <StackLayout Spacing="0">
+                                                            <Image HorizontalOptions="CenterAndExpand" Source="{Binding Icon}" WidthRequest="50"/>
+
+                                                            <!--<Label Text="{Binding Description}" FontSize="Body" TextColor="{StaticResource icons}" HorizontalOptions="Center" VerticalOptions="End" />-->
+                                                        </StackLayout>
+                                                    </Frame.Content>
+                                                </Frame>
+                                                <Label Text="{Binding Title}" MaxLines="1" LineBreakMode="TailTruncation" FontSize="Small" FontAttributes="Bold" TextColor="#232423" VerticalOptions="StartAndExpand" HorizontalOptions="Center"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <StackLayout Margin="20, 15" Spacing="0">
+                                <Label 
+                                        Text="Daily Meditations" 
+                                        TextColor="#232423" 
+                                        FontAttributes="Bold" 
+                                        FontSize="Large" 
+                                        HorizontalOptions="Start"/>
+                                <Frame CornerRadius="15" Padding="0" Margin="0,15" HeightRequest="190" WidthRequest="10" HasShadow="False" BackgroundColor="GhostWhite">
+                                    <RelativeLayout HorizontalOptions="FillAndExpand">
+                                        <Image HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="190" WidthRequest="400"/>
+                                        <StackLayout Margin="10,130">
+                                                <Label TextColor="Black" FontSize = "15" Text="Rest &amp; Relax" FontAttributes="Bold"/>
+                                                <Grid ColumnDefinitions="Auto" RowDefinitions="Auto" ColumnSpacing="2">
+                                                    <Image Grid.Row="0" Grid.Column="0" Source="outline_schedule_black_48.png" Aspect="AspectFit" WidthRequest="14" VerticalOptions="EndAndExpand" />
+                                                    <Label Grid.Row="0" Grid.Column="1" Text="30 mins" FontSize = "13" TextColor="Black"/>
+                                                </Grid>
+                                            </StackLayout>
+                                    </RelativeLayout>
+                                </Frame>
+                                <Grid ColumnDefinitions="*" RowDefinitions="Auto">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="New Music" TextColor="#232423" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Start"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="View all" FontSize = "13" TextColor="Gray" VerticalOptions="CenterAndExpand" Margin="130,0,0,0"/>
+                                </Grid>
+                            </StackLayout>
+
+                            <CollectionView SelectionMode="Single" ItemsSource="{Binding NewMusicList}" SelectedItem="{Binding SelectedSong}" HeightRequest="200" Margin="10,-2">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="5" ColumnDefinitions="*">
+                                            <StackLayout Grid.Column="0">
+                                                <Frame IsClippedToBounds="True"
+                                                        HasShadow="True"
+                                                        Padding="0"
+                                                        BackgroundColor="White"
+                                                        CornerRadius="16"
+                                                       >       
+                                                    <Frame.Margin>
+                                                        <OnPlatform x:TypeArguments="Thickness"
+                                                           Android="5,-5,0,0"
+                                                            iOS="18, 0, 0, 0"/>          
+                                                    </Frame.Margin>
+
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                                        <Image  Source="{Binding Image}" Aspect="AspectFill" HeightRequest="120" WidthRequest="140" />
+                                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15" HeightRequest="20">
+                                                            <Label TextColor="#232423" FontSize = "15" Text="{Binding Title}" Margin="0,-15" FontAttributes="Bold"/>
+                                                            <Grid ColumnDefinitions="Auto">
+                                                                <Image Grid.Column="0" Source="outline_schedule_black_48.png" Aspect="AspectFit" WidthRequest="14" VerticalOptions="EndAndExpand" />
+                                                                <Label Grid.Column="1" Text="{Binding Duration}" TextColor="Gray" FontSize = "13" Margin="0,5" VerticalOptions="Center"/>
+                                                            </Grid>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>    
+                                            </StackLayout>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+
+        </RelativeLayout>
+
+
+
+    </ContentPage.Content>
+
+</ContentPage>

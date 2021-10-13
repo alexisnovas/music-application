@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicApp.Views.SongDetailsPage"
+             Title="{Binding SongTitle}">
+    <ContentPage.Content>
+        <Frame Padding="0" Margin="0,0" HeightRequest="190" WidthRequest="10" HasShadow="False" BackgroundColor="GhostWhite">
+            <StackLayout>
+                <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Image HorizontalOptions="CenterAndExpand" Source="{Binding SongImage}" Aspect="AspectFill" HeightRequest="190" WidthRequest="500"/>
+                    <StackLayout Margin="50">
+                        <Grid ColumnDefinitions="Auto" RowDefinitions="Auto" ColumnSpacing="2">
+                            <Image Grid.Row="0" Grid.Column="0" Source="outline_schedule_black_48.png" Aspect="AspectFit" WidthRequest="14" VerticalOptions="EndAndExpand" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="30 mins" FontSize = "13" TextColor="Black"/>
+                        </Grid>
+                    </StackLayout>
+                </RelativeLayout>
+                <Grid ColumnDefinitions="*" RowDefinitions="Auto">
+                    <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
+                    <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
+                    <Image Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
+                </Grid>
+                <StackLayout BackgroundColor="LightGreen" Padding="10" HeightRequest="600">
+                    <Label TextColor="Black" FontSize = "15" Text="{Binding SongSubtitle}" FontAttributes="Bold"/>
+                    <Label TextColor="Black" FontSize = "15" Text="{Binding SongDescription}"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

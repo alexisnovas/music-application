@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage NavigationPage.HasNavigationBar="false"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:MusicApp.Views"
+            x:Class="MusicApp.Views.MainTabbedPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom">
+    <NavigationPage.TitleView>
+        <Grid HorizontalOptions="Start" ColumnDefinitions="Auto">
+            <Label Grid.Column="0" 
+                   Text="Quick Help"
+                   TextColor="White" 
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    <TabbedPage.Children>
+        <views:TodayPage/>
+        <views:YogaPage/>
+        <views:MeditationPage/>
+        <views:MealPage/>
+        <views:ProfilePage/>
+    </TabbedPage.Children>
+</TabbedPage>
