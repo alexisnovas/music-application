@@ -6,13 +6,14 @@ namespace MusicApp.Models
 {
     public class Song
     {
-        public Song(string title, string image, string duration, string subtitle, string description)
+        public Song(string title, string image, string duration, string subtitle, string description, string[] songImages)
         {
             Title = title;
             Image = image;
             Duration = duration;
             Subtitle = subtitle;
             Description = description;
+            SongImages = songImages;
         }
 
         public string Title { get; }

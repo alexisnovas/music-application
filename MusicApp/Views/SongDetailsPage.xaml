@@ -10,16 +10,19 @@
     <ContentPage.Content>
         <Frame Padding="0" Margin="0,0" HeightRequest="190" WidthRequest="10" HasShadow="False">
             <StackLayout>
-                <CarouselView ItemsSource="{Binding CarrouselImages}" HeightRequest="500">
+                <CarouselView ItemsSource="{Binding SongImages}" HeightRequest="500" IndicatorView="indicatorView">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Image HorizontalOptions="CenterAndExpand" Source="{Binding}" Aspect="AspectFill"/>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
-                <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                    
-                </RelativeLayout>
+                <IndicatorView x:Name="indicatorView"
+                   Margin="0,0,0,0"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="#10ad89"
+                   HorizontalOptions="Center">
+                </IndicatorView>
                 <Grid ColumnDefinitions="*" RowDefinitions="Auto" HorizontalOptions="CenterAndExpand">
                     <Grid Grid.Row="0" Grid.Column="0" HorizontalOptions="End" Margin="50,0,0,0">
                         <Image Source="fileUpload.png" Aspect="AspectFill" HeightRequest="40" WidthRequest="40" />

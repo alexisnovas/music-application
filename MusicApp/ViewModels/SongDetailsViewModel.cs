@@ -12,13 +12,14 @@ namespace MusicApp.ViewModels
     {
         public SongDetailsViewModel(INavigationService navigationService) : base(navigationService) 
         {
-            CarrouselImages = new ObservableCollection<string> { "CarrouselImage1.jpg", "CarrouselImage2.jpg", "CarrouselImage3.jpg" };
+            //CarrouselImages = new ObservableCollection<string> { "CarrouselImage1.jpg", "CarrouselImage2.jpg", "CarrouselImage3.jpg" };
 
         }
         public string SongTitle { get; set; }
         public string SongImage { get; set; }
         public string SongSubtitle { get; set; }
         public string SongDescription { get; set; }
+        public string[] SongImages { get; set; }
 
         public override string Title => throw new NotImplementedException();
 
@@ -33,6 +34,7 @@ namespace MusicApp.ViewModels
             SongImage = parameters.GetValue<string>(nameof(SongImage));
             SongSubtitle = parameters.GetValue<string>(nameof(SongSubtitle));
             SongDescription = parameters.GetValue<string>(nameof(SongDescription));
+            SongImages = parameters.GetValue<string[]>(nameof(SongImages));
         }
 
         public ObservableCollection<string> CarrouselImages { get; set; }
