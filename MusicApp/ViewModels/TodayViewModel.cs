@@ -28,7 +28,7 @@ namespace MusicApp.ViewModels
             {
                 _selectedSong = value;
 
-                if(_selectedSong != null)
+                if (_selectedSong != null)
                 {
                     SelectedSongCommand.Execute(_selectedSong);
                     SelectedSong = null;
@@ -76,6 +76,5 @@ namespace MusicApp.ViewModels
         public ObservableCollection<QuickHelpMenuOption> QuickHelpMenuList { get; set; }
         public ObservableCollection<Song> NewMusicList { get; set; }
         public ICommand SelectedSongCommand { get; }
-        //private async void OnSongSelected() => await NavigationService.NavigateAsync(NavigationConstants.SongDetails, navigationParams);
     }
 }

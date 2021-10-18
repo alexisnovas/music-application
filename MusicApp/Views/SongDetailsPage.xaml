@@ -2,27 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MusicApp.Views.SongDetailsPage"
-             Title="{Binding SongTitle}">
+             xmlns:control="_Carrousel "
+             xmlns:android="http://schemas.android.com/apk/res/android">
+    <NavigationPage.TitleView>
+        <Label Text="{Binding SongTitle}" TextColor="White" FontSize="Title" FontFamily="OpenSans"/>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
-        <Frame Padding="0" Margin="0,0" HeightRequest="190" WidthRequest="10" HasShadow="False" BackgroundColor="GhostWhite">
+        <Frame Padding="0" Margin="0,0" HeightRequest="190" WidthRequest="10" HasShadow="False">
             <StackLayout>
+                <CarouselView ItemsSource="{Binding CarrouselImages}" HeightRequest="500">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image HorizontalOptions="CenterAndExpand" Source="{Binding}" Aspect="AspectFill"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
                 <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                    <Image HorizontalOptions="CenterAndExpand" Source="{Binding SongImage}" Aspect="AspectFill" HeightRequest="190" WidthRequest="500"/>
-                    <StackLayout Margin="50">
-                        <Grid ColumnDefinitions="Auto" RowDefinitions="Auto" ColumnSpacing="2">
-                            <Image Grid.Row="0" Grid.Column="0" Source="outline_schedule_black_48.png" Aspect="AspectFit" WidthRequest="14" VerticalOptions="EndAndExpand" />
-                            <Label Grid.Row="0" Grid.Column="1" Text="30 mins" FontSize = "13" TextColor="Black"/>
-                        </Grid>
-                    </StackLayout>
+                    
                 </RelativeLayout>
-                <Grid ColumnDefinitions="*" RowDefinitions="Auto">
-                    <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
-                    <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
-                    <Image Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" Source="https://www.10wallpaper.com/wallpaper/1366x768/1705/Winter_season_mountains-High_Quality_Wallpaper_1366x768.jpg" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
+                <Grid ColumnDefinitions="*" RowDefinitions="Auto" HorizontalOptions="CenterAndExpand">
+                    <Grid Grid.Row="0" Grid.Column="0" HorizontalOptions="End" Margin="50,0,0,0">
+                        <Image Source="fileUpload.png" Aspect="AspectFill" HeightRequest="40" WidthRequest="40" />
+                     </Grid>
+                    <BoxView  
+                        TranslationX="15"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Center"
+                        WidthRequest="1"
+                        Color="LightGray"/>
+                    <Grid Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand">
+                        <Image HorizontalOptions="CenterAndExpand" Source="addCalendar.png" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
+                    </Grid>
+                    <BoxView
+                        TranslationX="-15"
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Center"
+                        WidthRequest="1"
+                        Color="LightGray"/>
+                    <Grid  Grid.Row="0" Grid.Column="4" HorizontalOptions="Start" Margin="-15, 0">
+                        <Image HorizontalOptions="CenterAndExpand" Source="heartIcon.png" Aspect="AspectFill" HeightRequest="40" WidthRequest="40"/>
+                    </Grid>
                 </Grid>
-                <StackLayout BackgroundColor="LightGreen" Padding="10" HeightRequest="600">
-                    <Label TextColor="Black" FontSize = "15" Text="{Binding SongSubtitle}" FontAttributes="Bold"/>
-                    <Label TextColor="Black" FontSize = "15" Text="{Binding SongDescription}"/>
+                <StackLayout BackgroundColor="#defff7" Opacity="0.7" Padding="10" HeightRequest="600">
+                    <Label TextColor="#10ad89" FontSize = "20" Text="{Binding SongSubtitle}" Margin="0,0,0,10" FontFamily="OpenSans"/>
+                    <Label TextColor="Black" FontSize = "15" Text="{Binding SongDescription}" FontFamily="OpenSans"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

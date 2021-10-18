@@ -41,7 +41,7 @@
                                     <DataTemplate>
                                         <Grid Padding="5" ColumnDefinitions="*">
                                             <StackLayout Grid.Column="0">
-                                                <Frame CornerRadius="15" Padding="18" Margin="8" HeightRequest="40" WidthRequest="40" HasShadow="False" BackgroundColor="White">
+                                                <Frame CornerRadius="15" Padding="18" Margin="8" HeightRequest="35" WidthRequest="35" HasShadow="False" BackgroundColor="White">
                                                     <Frame.Content>
                                                         <StackLayout Spacing="0">
                                                             <Image HorizontalOptions="CenterAndExpand" Source="{Binding Icon}" WidthRequest="50"/>
@@ -77,11 +77,11 @@
                                 </Frame>
                                 <Grid ColumnDefinitions="*" RowDefinitions="Auto">
                                     <Label Grid.Row="0" Grid.Column="0" Text="New Music" TextColor="#232423" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Start"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="View all" FontSize = "13" TextColor="Gray" VerticalOptions="CenterAndExpand" Margin="130,0,0,0"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="View all" FontSize = "13" TextColor="Gray" VerticalOptions="CenterAndExpand" Margin="125,0,0,0"/>
                                 </Grid>
                             </StackLayout>
 
-                            <CollectionView SelectionMode="Single" ItemsSource="{Binding NewMusicList}" SelectedItem="{Binding SelectedSong}" HeightRequest="200" Margin="10,-2">
+                            <CollectionView SelectionMode="Single" ItemsSource="{Binding NewMusicList}" SelectedItem="{Binding SelectedSong}" HeightRequest="200" Margin="10,-2,20,0">
                                 <CollectionView.ItemsLayout>
                                     <LinearItemsLayout Orientation="Horizontal"/>
                                 </CollectionView.ItemsLayout>

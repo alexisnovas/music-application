@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace MusicApp.ViewModels
@@ -11,6 +12,7 @@ namespace MusicApp.ViewModels
     {
         public SongDetailsViewModel(INavigationService navigationService) : base(navigationService) 
         {
+            CarrouselImages = new ObservableCollection<string> { "CarrouselImage1.jpg", "CarrouselImage2.jpg", "CarrouselImage3.jpg" };
 
         }
         public string SongTitle { get; set; }
@@ -32,6 +34,9 @@ namespace MusicApp.ViewModels
             SongSubtitle = parameters.GetValue<string>(nameof(SongSubtitle));
             SongDescription = parameters.GetValue<string>(nameof(SongDescription));
         }
-    }
+
+        public ObservableCollection<string> CarrouselImages { get; set; }
+
+    };
     
 }

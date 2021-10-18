@@ -14,10 +14,12 @@ namespace MusicApp.Models
             Subtitle = subtitle;
             Description = description;
         }
+
         public string Title { get; }
         public string Image { get; }
         public string Duration { get; }
         public string Subtitle { get; }
         public string Description { get; }
+        public string[] SongImages { get; }
     }
 }
