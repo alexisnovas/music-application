@@ -1,7 +1,6 @@
 # Music App
 
 Music App UI developed using Xamarin Forms for educational purposes.
-``
 
 ## Technologies:
 - Xamarin Forms
